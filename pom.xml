@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.nav.arbeidsgiver</groupId>
-    <artifactId>altinn-rettigheter-proxy-klient</artifactId>
+    <groupId>no.nav.digihot</groupId>
+    <artifactId>digihot-altinn-proxy-klient</artifactId>
     <version>2.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     
 
-    <name>altinn-rettigheter-proxy-klient</name>
-    <description>Arbeidsgiver - Klient bibliotek for Altinn-rettigheter-proxy</description>
+    <name>digihot-altinn-proxy-klient</name>
+    <description>Digihot - Klientbibliotek for digihot-altinn-rettigheter-proxy</description>
 
-    <url>https://github.com/navikt/altinn-rettigheter-proxy-klient</url>
+    <url>https://github.com/navikt/digihot-altinn-proxy-klient</url>
 
     <licenses>
         <license>
@@ -230,10 +230,10 @@
     </profiles>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:navikt/altinn-rettigheter-proxy-klient.git</developerConnection>
-        <connection>scm:git:git@github.com:navikt/altinn-rettigheter-proxy-klient.git</connection>
-        <url>https://github.com/navikt/altinn-rettigheter-proxy-klient</url>
-        <tag>altinn-rettigheter-proxy-klient-0.0.5</tag>
+        <developerConnection>scm:git:git@github.com:navikt/digihot-altinn-proxy-klient.git</developerConnection>
+        <connection>scm:git:git@github.com:navikt/digihot-altinn-proxy-klient.git</connection>
+        <url>https://github.com/navikt/digihot-altinn-proxy-klient</url>
+        <tag>digihot-altinn-proxy-klient-0.0.1</tag>
     </scm>
 
     <repositories>
