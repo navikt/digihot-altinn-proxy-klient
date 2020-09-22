@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.io.Serializable
 
 data class SelvbetjeningToken(val value: String)
-data class Subject(val value: String)
 data class ServiceCode(val value: String)
 data class ServiceEdition(val value: String)
 

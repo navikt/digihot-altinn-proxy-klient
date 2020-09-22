@@ -7,8 +7,8 @@ abstract class ProxyError() {
 
     enum class Kilde(val verdi: String) {
         ALTINN("ALTINN"),
-        ALTINN_RETTIGHETER_PROXY("ALTINN_RETTIGHETER_PROXY"),
-        ALTINN_RETTIGHETER_PROXY_KLIENT("ALTINN_RETTIGHETER_PROXY_KLIENT")
+        ALTINN_PROXY("ALTINN_PROXY"),
+        ALTINN_PROXY_KLIENT("ALTINN_PROXY_KLIENT")
     }
 }
 

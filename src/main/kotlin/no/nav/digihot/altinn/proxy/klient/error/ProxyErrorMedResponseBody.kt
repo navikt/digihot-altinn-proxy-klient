@@ -14,7 +14,7 @@ class ProxyErrorMedResponseBody(private val responseBody: ProxyResponseIErrorBod
     override val kilde: Kilde = try {
         Kilde.valueOf(responseBody.origin.toUpperCase())
     } catch (e: Exception) {
-        Kilde.ALTINN_RETTIGHETER_PROXY_KLIENT
+        Kilde.ALTINN_PROXY_KLIENT
     }
 
     data class ProxyResponseIErrorBody(val message: String, val origin: String) {
@@ -36,7 +36,7 @@ class ProxyErrorMedResponseBody(private val responseBody: ProxyResponseIErrorBod
                 logger.info("Kunne ikke parse response body `${inputAsString}`. Årsak: '${e.message}'")
                 ProxyResponseIErrorBody(
                         "Uhåndtert feil i proxy",
-                        Kilde.ALTINN_RETTIGHETER_PROXY_KLIENT)
+                        Kilde.ALTINN_PROXY_KLIENT)
             }
         }
 
