@@ -1,12 +1,12 @@
-name: CI
+name: Release (Github Package Registry)
 
 on:
   push:
     branches:
-      - '!master'
+      - 'master'
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -14,5 +14,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Run Maven release
+        run: ./release.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
