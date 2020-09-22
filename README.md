@@ -1,23 +1,23 @@
-Altinnrettigheter-proxy-klient
+digihot-altinn-proxy-klient
 ==============================
 
-Bibliotek som tilbyr en Http klient til altinn-rettigheter-proxy.
-Klienten vil forsøke å kontakte Altinn via proxyen, som tilbyr caching på tvers av ulike tjenester i Nav. Klienten har en innebygd feilhåndtering, slik at dersom kall mot proxyen feiler vil det gjøres et nytt kall direkte mot Altinn sitt API.
+Bibliotek som tilbyr en Http klient til digihot-altinn-proxy.
+Klienten vil forsøke å kontakte Altinn via proxyen, som tilbyr caching på tvers av ulike tjenester i Nav.
 
 # Komme i gang
 
-Biblioteket er skrevet i Kotlin. Koden kompileres med maven og produserer en jar fil `altinn-rettigheter-proxy-klient-{version}.jar`
+Biblioteket er skrevet i Kotlin. Koden kompileres med maven og produserer en jar fil `digihot-altinn-proxy-klient-{version}.jar`
 
 `mvn clean install`
 
-# Bruk av AltinnrettigheterProxyKlient 
+# Bruk av AltinnProxyKlient 
 
 Biblioteket importeres i klientapplikasjon slik (eksempel med maven)
 ```xml
 <dependency>
-  <groupId>no.nav.arbeidsgiver</groupId>
-  <artifactId>altinn-rettigheter-proxy-klient</artifactId>
-  <version>${altinn-rettigheter-proxy-klient.version}</version>
+  <groupId>no.nav.digihot</groupId>
+  <artifactId>digihot-altinn-proxy-klient</artifactId>
+  <version>${digihot-altinn-proxy-klient.version}</version>
 </dependency>
 ```
 
@@ -25,13 +25,7 @@ Klienten instansieres slik:
 ```java
 String consumerId = "navn-til-klient-applikasjon";
 
-AltinnrettigheterProxyKlientConfig config = 
-    new AltinnrettigheterProxyKlientConfig(
-        new ProxyConfig(consumerId, altinnProxyUrl),
-        new AltinnConfig(altinnUrl, altinnApikey, altinnAPIGWApikey)
-    );
-
-AltinnrettigheterProxyKlient klient = new AltinnrettigheterProxyKlient(config);
+AltinnProxyKlient klient = new AltinnProxyKlient(consumerId, proxyUrl);
 ```
 
 Da skal det være mulig å hente listen av organisasjoner `AltinnReportee` en bruker har enkeltrettigheter i: 
@@ -41,29 +35,16 @@ For en spesifikk tuple `serviceCode` og `serviceEdition`
 List<AltinnReportee> organisasjoner =  
     klient.hentOrganisasjoner(
         new SelvbetjeningToken(selvbetjeningTokenAsString),
-        new Subject(fnrInnloggetBruker),
         new ServiceCode(serviceCode),
         new ServiceEdition(serviceEdition), 
         true
     );
 ```
 
-For alle enkelterettigheter
-
-```java
-List<AltinnReportee> organisasjoner =  
-    klient.hentOrganisasjoner(
-        new SelvbetjeningToken(selvbetjeningTokenAsString),
-        new Subject(fnrInnloggetBruker) 
-        true
-     );
-```
-
 Hvor `selvbetjeningTokenAsString` er String verdi av `selvbetjening-idtoken` cookie til innlogget bruker. 
 
 Det er mulig å filtrere bort organisasjoner av type `Person` eller som ikke er aktive ved å sette siste parameteren `filterPåAktiveOrganisasjoner` til `true`
 
-                  
 ---
 # Lage og publisere en ny release
 ## Forutsetning
@@ -86,14 +67,7 @@ Kommandoen skal pushe en ny tag på GitHub. Da kan `Build and publish` action st
 Credentials som skal til for å kunne publisere til Maven Central provisjoneres av [publish-maven-central](https://github.com/navikt/publish-maven-central)
 
 Tilgjengelige versjoner: https://repo1.maven.org/maven2/no/nav/arbeidsgiver/altinn-rettigheter-proxy-klient/
-# Henvendelser
-
-Spørsmål knyttet til koden eller prosjektet kan rettes mot:
-
-* Lars Andreas Tveiten, lars.andreas.van.woensel.kooy.tveiten@nav.no
-* Malaz Alkoj, malaz.alkoj@nav.no
-* Thomas Dufourd, thomas.dufourd@nav.no
 
 ## For NAV-ansatte
 
-Interne henvendelser kan sendes via Slack i kanalen #arbeidsgiver-teamia.
+Interne henvendelser kan sendes via Slack i kanalen #digihot.
