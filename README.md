@@ -47,26 +47,7 @@ Det er mulig å filtrere bort organisasjoner av type `Person` eller som ikke er 
 
 ---
 # Lage og publisere en ny release
-## Forutsetning
-Release tag skal være signert. Derfor må signering av commits være aktivert per default, med f.eks `git config commit.gpgsign true`
-
-## Prosess
-Vi bruker `mvn-release-plugin` for å lage en ny release. I den prosessen skal en ny tag genereres.
- Artifact publiseres fra tag-en med GitHub actions.
-
-Start med å rydde opp etter forrige release om det trenges ved å kjøre `mvn release:clean`
-
-Lag en ny release med `mvn release:prepare`:
- * Skriv inn nytt release version (skal følge semantic versioning: https://semver.org/)
- * SCM release tag er preutfylt (bare trykk enter)
- * new development version er også preutfylt (trykk enter)
-
-Kommandoen skal pushe en ny tag på GitHub. Da kan `Build and publish` action starte og release artifactene til Maven central.
-
-## Publisere til Maven Central
-Credentials som skal til for å kunne publisere til Maven Central provisjoneres av [publish-maven-central](https://github.com/navikt/publish-maven-central)
-
-Tilgjengelige versjoner: https://repo1.maven.org/maven2/no/nav/arbeidsgiver/altinn-rettigheter-proxy-klient/
+Nye versjonar blir publisert til Github Package Registry, og kan hentast derifrå.
 
 ## For NAV-ansatte
 
