@@ -124,8 +124,8 @@ class AltinnProxyKlient(
                 )
 
                 logger.info("Mottok en feil fra kilde '${proxyErrorMedResponseBody.kilde}' " +
-                        "med status '${proxyErrorMedResponseBody.httpStatus}' " +
-                        "og melding '${proxyErrorMedResponseBody.melding}'")
+                        "med status '${response.statusCode}' " +
+                        "og melding '${response.responseMessage}'")
 
                 if ((response.isClientError && response.statusCode != 404) || proxyErrorMedResponseBody.kilde == ProxyError.Kilde.ALTINN) {
                     throw AltinnException(proxyErrorMedResponseBody)
