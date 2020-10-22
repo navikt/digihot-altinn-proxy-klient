@@ -123,6 +123,8 @@ class AltinnProxyKlient(
                         response.statusCode
                 )
 
+                logger.error(result.error.message)
+
                 logger.info("Mottok en feil fra kilde '${proxyErrorMedResponseBody.kilde}' " +
                         "med status '${response.statusCode}' " +
                         "og melding '${response.responseMessage}'")
